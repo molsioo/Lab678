@@ -4,7 +4,9 @@ import json
 import xmltodict
 import yaml
 
-
+def convert_to_dict(content, input_format):
+    if input_format == 'json':
+        return json.loads(content)
 
 def main(input_file, output_file):
     pass
