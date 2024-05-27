@@ -17,6 +17,8 @@ def convert_to_dict(content, input_format):
         return json.loads(content)
     elif input_format in ['yml', 'yaml']:
         return yaml.safe_load(content)
+    elif input_format == 'xml':
+        return xmltodict.parse(content)
 
 def convert_from_dict(data_dict, output_format):
     if output_format == 'json':
