@@ -19,6 +19,8 @@ def convert_to_dict(content, input_format):
         return yaml.safe_load(content)
     elif input_format == 'xml':
         return xmltodict.parse(content)
+    else:
+        raise ValueError(f"Unsupported output format: {input_format}")
 
 def convert_from_dict(data_dict, output_format):
     if output_format == 'json':
@@ -27,6 +29,8 @@ def convert_from_dict(data_dict, output_format):
         return yaml.dump(data_dict, default_flow_style=False)
     elif output_format == 'xml':
         return xmltodict.unparse(data_dict, pretty=True)
+    else:
+        raise ValueError(f"Unsupported output format: {output_format}")
 
 def main(input_file, output_file):
 
