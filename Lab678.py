@@ -25,6 +25,8 @@ def convert_from_dict(data_dict, output_format):
         return json.dumps(data_dict, indent=4)
     elif output_format in ['yml', 'yaml']:
         return yaml.dump(data_dict, default_flow_style=False)
+    elif output_format == 'xml':
+        return xmltodict.unparse(data_dict, pretty=True)
 
 def main(input_file, output_file):
 
